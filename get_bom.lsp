@@ -362,23 +362,6 @@
   (setq all_att_list (vl-sort all_att_list '(lambda (s1 s2) (< (atoi (cadr s1)) (atoi (cadr s2))))))
 )
 
-;;;(defun get_att_list()
-;;;  (setq all_att_list nil)
-;;;  (setq n 0)
-;;;  (repeat (sslength ss_item)
-;;;    (setq ent0 (ssname ss_item n))
-;;;    (setq att_list nil ent ent0)
-;;;    (repeat 5 (setq ent (entnext ent))
-;;;       (setq att_list (append att_list (list (cdr (assoc 1 (entget ent))))))
-;;;    )
-;;;    (setq att_list (list (nth 1 att_list) (nth 0 att_list) (nth 2 att_list) (nth 3 att_list) (nth 4 att_list) ent0))
-;;;    (setq all_att_list (append all_att_list (list att_list)))
-;;;    (setq n (1+ n))
-;;;  )
-;;;  (setq all_att_list (vl-sort all_att_list '(lambda (s1 s2) (< (atoi (cadr s1)) (atoi (cadr s2))))))
-;;;)
-
-
 
 ;;==================================================================================================
 (defun IniciaExcel($sheet)
@@ -725,12 +708,6 @@
    (princ)
 )
 
-;;;(defun c:del_cloud()
-;;;  (setvar "cmdecho" 0)
-;;;  (setq ss (ssget "x" '((0 . "INSERT") (2 . "DNO_EC"))))
-;;;  (if ss (command ".erase" ss ""))
-;;;  (princ)
-;;;)
 
 (defun sel_item()
   (while (not (setq ent (entsel "\n選擇要刪除的項目: "))))
@@ -751,21 +728,6 @@
 )   
 
   
-;;;(defun c:del_item()
-;;;  (setvar "cmdecho" 0)  
-;;;  (setq oldos (getvar "osmode"))
-;;;  (sel_item)
-;;;  (setq ent0 ent)
-;;;  (setq ent (entnext ent))
-;;;  (setq del_no (atoi (cdr (assoc 1 (entget ent)))))
-;;;  (setq ent (entnext ent))
-;;;  (setq item (cdr (assoc 1 (entget ent))))
-;;;  (if (/= item "")
-;;;      (alert "此項目仍有資料，不可刪除!")
-;;;      (del_item)
-;;;  )
-;;;  (princ)
-;;;)
 
 (defun del_item()
   (setq ss (ssget "x" '((0 . "INSERT") (2 . "DNO_EC"))))
