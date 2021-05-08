@@ -15,16 +15,13 @@
 	((= ans "1") (do_csv))
 	((= ans "2") (do_xls))
 	((= ans "3") (do_xls))
-	;((= (strcase (vl-filename-extension ff)) ".XLSX") (do_xls))
 	(t (alert "請選擇.CSV或.XLS檔案") (get_csv))
   )
 )
 
 (defun do_csv() 
-  ;;(setq ff (findfile "新設圖面.csv"))
   (setq str_list nil dno_list nil #dno_list nil)
   (setq fr (open ff "r"))
-  ;(setq str (nth 3 str_list))
   (read-line fr)
   (read-line fr)
   (while (setq str (read-line fr))
@@ -71,7 +68,6 @@
 )    
 
 (defun do_xls() 
-  ;;(setq ff (findfile "新設圖面.csv"))
   (setq str_list nil dno_list nil #dno_list nil)
   (setq xls_file ff)
   (IniciaExcel "SHEET2")
@@ -100,8 +96,6 @@
 
 
 (defun get_list (#no)
-  ;(setq #no (getstring "\nNO="))
-  ;(setq #no $no)
   (setq begin (assoc #no str_list)) ;;找到此編號
   (if (not begin) (progn (alert (strcat "找不到編號: " #no " 的資料。")) (exit))) 
   (setq key (strcat (nth 1 begin) "_"))
@@ -122,14 +116,6 @@
     )
     (setq $n (1+ $n))
   )  
-;;;  (foreach data	find_list
-;;;    (setq ##no (nth 1 data))
-;;;    (if (= (substr ##no 1 slen) key) 
-;;;      (if (not (vl-string-search "_" (substr ##no (1+ slen))))	
-;;;	  (setq ans_list (append ans_list (list data)))
-;;;      )
-;;;    )
-;;;  )
 )
 
 (defun chg_factor()
@@ -147,7 +133,6 @@
 
 
 (defun chg_factor2()
-  ;(setq ent (entlast))
   (if (> #len 27)
       (setq wfac 0.4)
       (setq wfac (cadr (assoc #len wfac_list)))
@@ -216,7 +201,6 @@
        (setq ans (getkword "\n資料已存在，是否刪除原資料? Yes/No: "))
        (if (= ans "No")
 	   (exit)
-	   ;(command ".erase" ss_old "")
        )
      )
   )  
