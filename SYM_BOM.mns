@@ -1,0 +1,21 @@
+***MENUGROUP=SYM_BOM
+***pop1
+[材料表]
+[匯入資料]^C^C^P(load "get_bom") get_bom
+[設計變更]^C^C^P(load "get_bom") sym_ec
+[--]
+[匯出 Excel]^C^C^P(load "get_bom") 2xls
+[--]
+[文字轉屬性]^C^C^P(load "get_bom") txt2bom
+[文字轉屬性(指定所有欄寬)]^C^C^P(load "get_bom") txt2bom2
+
+***TOOLBARS
+**BOM
+Tool      [_Toolbar("CAD材料表", _Top, _Show, 1, 2, 1)]
+get_bom   [_Button("匯入資料", "get_bom.bmp" ,"get_bom.bmp")]^C^C^P(load "get_bom") get_bom
+sym_ec    [_Button("設計變更", "sym_ec.bmp" ,"sym_ec.bmp")]^C^C^P(load "get_bom") sym_ec
+          [--]
+2xls      [_Button("匯出Excel", "2xls.bmp" ,"2xls.bmp")]^C^C^P(load "get_bom") 2xls
+          [--]
+txt2bom   [_Button("文字轉屬性", "txt2bom.bmp" ,"txt2bom.bmp")]^C^C^P(load "get_bom") txt2bom
+txt2bom2  [_Button("文字轉屬性(指定所有欄寬)", "txt2bom2.bmp" ,"txt2bom2.bmp")]^C^C^P(load "get_bom") txt2bom2
